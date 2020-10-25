@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="darkmode.css">
+    </head>
+    <body>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+          </label>
+          <em>Dark Mode</em>
+        </div>
+        <h1>Hello World</h1>
+        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare risus ipsum, sit amet accumsan dolor tempor a. Aliquam erat volutpat. Nulla lorem dolor, volutpat vel orci et, interdum elementum nulla. Cras convallis neque suscipit erat ultricies, eu pellentesque nunc efficitur. Donec feugiat, turpis non venenatis faucibus, nibh quam consectetur leo, ac ultricies lorem neque at velit. Cras mattis non dolor sed tristique. Sed sollicitudin non diam et rhoncus. Sed ornare eu felis sit amet aliquam. Pellentesque euismod placerat lobortis. Maecenas non tristique urna, ac faucibus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse luctus sed diam finibus tempus. Nam consequat tortor aliquam ligula vehicula ullamcorper. Phasellus venenatis vitae ipsum nec posuere. Donec blandit metus fringilla nulla porta maximus. Integer consequat nisi ut vehicula ullamcorper. 
+        </h4>
+        <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+        }
+        </script>
+    </body>
+</html>
